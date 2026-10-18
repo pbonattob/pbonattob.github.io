@@ -66,6 +66,11 @@
     .contact-field input:focus, .contact-field textarea:focus { border-color: var(--accent); }
     .contact-field textarea { min-height: 110px; resize: vertical; }
     .contact-submit { margin-top: 14px; cursor: pointer; }
+    .contact-intro { margin: -4px 0 14px; color: var(--muted); font-size: 13px; }
+    .form-status { display: none; margin: 0 0 12px; color: #49644c; font-size: 13px; }
+    .form-status.form-error { color: var(--accent); }
+    .form-status:not(:empty) { display: block; }
+    .field-error { color: var(--accent); font-size: 11px; }
     .portrait-frame { position: relative; justify-self: end; width: min(100%, 370px); }
     .portrait-frame::before { content: ""; position: absolute; inset: 15px -15px -15px 15px; border: 1px solid #bbb8af; z-index: 0; }
     .portrait { display: block; position: relative; z-index: 1; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 24%; filter: grayscale(100%); }
@@ -151,25 +156,32 @@
           <p class="hero-interests">Macroeconomia, mercados financeiros, política fiscal e juros, alocação de ativos, indústria de investimentos</p>
           <div class="hero-contact">
             <h2>Contato</h2>
-            <form id="contact-form">
+            <p class="contact-intro">Tem uma pergunta, ideia ou proposta? Escreva para mim.</p>
+            <p class="form-status" data-fs-success role="status">Mensagem enviada. Obrigado pelo contato.</p>
+            <p class="form-status form-error" data-fs-error role="alert"></p>
+            <form id="contact-form" action="https://formspree.io/f/xwlvzapz" method="POST">
               <div class="contact-fields">
                 <label class="contact-field">Nome *
-                  <input name="name" type="text" autocomplete="name" required>
+                  <input name="name" type="text" autocomplete="name" data-fs-field required>
+                  <span class="field-error" data-fs-error="name"></span>
                 </label>
                 <label class="contact-field">Empresa
-                  <input name="company" type="text" autocomplete="organization">
+                  <input name="company" type="text" autocomplete="organization" data-fs-field>
                 </label>
                 <label class="contact-field">Telefone
-                  <input name="phone" type="tel" autocomplete="tel">
+                  <input name="phone" type="tel" autocomplete="tel" data-fs-field>
                 </label>
                 <label class="contact-field">E-mail *
-                  <input name="email" type="email" autocomplete="email" required>
+                  <input name="email" type="email" autocomplete="email" data-fs-field required>
+                  <span class="field-error" data-fs-error="email"></span>
                 </label>
                 <label class="contact-field full">Escreva sua mensagem *
-                  <textarea name="message" required></textarea>
+                  <textarea name="message" data-fs-field required></textarea>
+                  <span class="field-error" data-fs-error="message"></span>
                 </label>
               </div>
-              <button class="button primary contact-submit" type="submit">Enviar ↗</button>
+              <input type="hidden" name="_subject" value="Contato, Git Hub">
+              <button class="button primary contact-submit" type="submit" data-fs-submit-btn>Enviar ↗</button>
             </form>
           </div>
         </div>
@@ -238,28 +250,14 @@
     <span>Feito para reunir ideias, não recomendações.</span>
   </footer>
   <script>
-    document.getElementById("contact-form").addEventListener("submit", function (event) {
-      event.preventDefault();
-      const form = event.currentTarget;
-      const data = new FormData(form);
-      const details = [
-        "Mensagem:",
-        data.get("message"),
-        "",
-        "Nome: " + data.get("name"),
-        "Empresa: " + (data.get("company") || "Não informada"),
-        "Telefone: " + (data.get("phone") || "Não informado"),
-        "E-mail: " + data.get("email")
-      ].join("\n");
-      const params = new URLSearchParams({
-        view: "cm",
-        fs: "1",
-        to: "pbonattob@gmail.com",
-        su: "Contato, Git Hub",
-        body: details
-      });
-      window.open("https://mail.google.com/mail/?" + params.toString(), "_blank", "noopener,noreferrer");
+    window.formspree = window.formspree || function () {
+      (formspree.q = formspree.q || []).push(arguments);
+    };
+    formspree('initForm', {
+      formElement: '#contact-form',
+      formId: 'xwlvzapz'
     });
   </script>
+  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
