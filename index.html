@@ -48,6 +48,9 @@
     .button.primary { background: var(--ink); color: #fff; }
     .button.primary:hover { background: var(--accent); border-color: var(--accent); }
     .button.secondary:hover { background: #e9e6de; }
+    .hero-links { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 18px; color: var(--muted); font-size: 12px; }
+    .hero-links a { text-decoration-thickness: 1px; text-underline-offset: 4px; }
+    .hero-links a:hover { color: var(--accent); }
     .portrait-frame { position: relative; justify-self: end; width: min(100%, 370px); }
     .portrait-frame::before { content: ""; position: absolute; inset: 15px -15px -15px 15px; border: 1px solid #bbb8af; z-index: 0; }
     .portrait { display: block; position: relative; z-index: 1; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 24%; filter: grayscale(100%); }
@@ -75,6 +78,10 @@
     .about-copy { max-width: 620px; font-size: 17px; line-height: 1.75; }
     .about-copy p { margin-bottom: 17px; }
     .about-copy .muted { color: var(--muted); font-size: 14px; }
+    .about-copy h3 { margin: 30px 0 12px; font-family: Georgia, "Times New Roman", serif; font-size: 21px; font-weight: 400; line-height: 1.2; }
+    .position-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+    .position-list li { display: flex; justify-content: space-between; gap: 18px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 14px; line-height: 1.45; }
+    .position-list small { color: var(--muted); font-size: 12px; white-space: nowrap; }
     .contact { padding: 30px 0 38px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 24px; }
     .contact p { margin: 0; color: var(--muted); font-size: 13px; }
     footer { border-top: 1px solid var(--line); padding: 17px 0 25px; color: var(--muted); font-size: 11px; display: flex; justify-content: space-between; gap: 16px; }
@@ -93,6 +100,7 @@
       .article-content { grid-column: 1; }
       .arrow { grid-column: 2; grid-row: 2; }
       .about-grid { grid-template-columns: 1fr; gap: 23px; }
+      .position-list li { align-items: flex-start; flex-direction: column; gap: 2px; }
       .contact { align-items: flex-start; flex-direction: column; }
       footer { flex-direction: column; gap: 5px; }
     }
@@ -121,6 +129,11 @@
         <div class="actions">
           <a class="button primary" href="#escritos">Ler meus escritos <span aria-hidden="true">&nbsp;↘</span></a>
           <a class="button secondary" href="https://substack.com/@pbonattob" target="_blank" rel="noopener noreferrer">Acompanhar no Substack ↗</a>
+        </div>
+        <div class="hero-links" aria-label="Links e contato">
+          <a href="https://www.linkedin.com/in/pbonattob" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a href="mailto:pbonattob@gmail.com">E-mail</a>
+          <a href="/cv-pedro-bonatto.pdf" target="_blank" rel="noopener noreferrer">CV (PDF) ↗</a>
         </div>
       </div>
       <div class="portrait-frame">
@@ -184,11 +197,20 @@
       <div class="wrap about-grid">
         <div>
           <p class="eyebrow">Um pouco sobre mim</p>
-          <h2>Interesse pelo que move os mercados.</h2>
+          <h2>Trajetória e interesses.</h2>
         </div>
         <div class="about-copy">
-          <p>Sou formado em Administração e construí minha trajetória profissional no mercado financeiro, com experiência em investimentos, distribuição e atendimento ao segmento Private.</p>
-          <p>Hoje, uso este espaço para organizar ideias e compartilhar análises sobre alocação de ativos, estratégia de investimentos, macroeconomia e os incentivos que moldam a indústria financeira.</p>
+          <p>Minha trajetória passa por relacionamento com clientes, análise de investimentos e estratégia de distribuição. Hoje, sigo acompanhando os mercados e produzindo conteúdo independente no <em>Off The Market</em>.</p>
+          <h3>Posições anteriores</h3>
+          <ul class="position-list">
+            <li><span>Apex Partners, Private Banker</span><small>abr. 2026 — ago. 2026</small></li>
+            <li><span>Apex Partners, Analista Operacional de Expansão</span><small>out. 2025 — abr. 2026</small></li>
+            <li><span>XP Inc., Banker</span><small>jul. 2024 — set. 2025</small></li>
+            <li><span>Banestes S.A., Estagiário de Recursos Humanos</span><small>set. 2022 — jun. 2024</small></li>
+            <li><span>Vanno Company, Sócio-proprietário</span><small>jan. 2021 — jul. 2023</small></li>
+          </ul>
+          <h3>Interesses</h3>
+          <p>Macroeconomia, mercados financeiros, política fiscal e juros, alocação de ativos, estratégia de investimentos e indústria financeira.</p>
           <p class="muted">Os textos publicados aqui são de caráter pessoal e não constituem recomendação de investimento.</p>
         </div>
       </div>
