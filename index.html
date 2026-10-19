@@ -105,8 +105,9 @@
     .reading { padding: 77px 0 84px; }
     .reading-columns { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 6vw, 78px); margin-top: 34px; }
     .reading-group h3 { margin: 0 0 14px; font-family: Georgia, "Times New Roman", serif; font-size: 25px; font-weight: 400; letter-spacing: -.035em; }
-    .book-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
-    .book-item { padding: 17px 0 18px; border-bottom: 1px solid var(--line); }
+    .reading-group { display: flex; flex-direction: column; min-width: 0; }
+    .book-list { flex: 1; display: grid; grid-template-rows: repeat(5, minmax(0, 1fr)); margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+    .book-item { min-height: 0; padding: 17px 0 18px; border-bottom: 1px solid var(--line); }
     .book-title { margin: 0 0 2px; font-family: Georgia, "Times New Roman", serif; font-size: 19px; font-weight: 400; line-height: 1.25; }
     .book-author { margin: 0 0 7px; color: var(--accent); font-size: 11px; font-weight: 650; }
     .book-note { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
@@ -226,7 +227,7 @@
       <div class="section-head">
         <div>
           <p class="eyebrow">Off The Market</p>
-          <h2>Escritos recentes.</h2>
+          <h2>Escritos recentes</h2>
         </div>
         <p class="section-note">Textos sobre economia, política e indústria de investimentos. Publicações recorrentes no Substack.</p>
       </div>
@@ -275,9 +276,8 @@
       <div class="section-head">
         <div>
           <p class="eyebrow">Biblioteca pessoal</p>
-          <h2>Leituras.</h2>
+          <h2>Leituras recomendadas</h2>
         </div>
-        <p class="section-note">Cinco livros sobre economia e investimentos e cinco leituras de tema livre.</p>
       </div>
       <div class="reading-columns">
         <div class="reading-group">
@@ -286,27 +286,27 @@
             <li class="book-item">
               <h4 class="book-title">Cartas a um jovem economista</h4>
               <p class="book-author">Gustavo Franco</p>
-              <p class="book-note">Memórias e conselhos sobre a formação e o ofício de economista.</p>
+              <p class="book-note">Em cartas dirigidas a quem começa na profissão, Gustavo Franco mistura memórias da carreira, episódios da vida pública e reflexões sobre o papel do economista na sociedade.</p>
             </li>
             <li class="book-item">
               <h4 class="book-title">O mais importante para o investidor</h4>
               <p class="book-author">Howard Marks</p>
-              <p class="book-note">Uma visão sobre risco, ciclos de mercado e as decisões que moldam o investimento.</p>
+              <p class="book-note">A partir de ciclos e experiências de mercado, Howard Marks discute risco, preço e comportamento, mostrando por que investir bem exige pensar além das oscilações do momento.</p>
             </li>
             <li class="book-item">
               <h4 class="book-title">A psicologia financeira</h4>
               <p class="book-author">Morgan Housel</p>
-              <p class="book-note">Histórias sobre como comportamento, tempo e sorte influenciam decisões com dinheiro.</p>
+              <p class="book-note">Com histórias e exemplos simples, Morgan Housel explora como experiências pessoais, sorte, tempo e emoções moldam decisões financeiras e a maneira de lidar com riqueza.</p>
             </li>
             <li class="book-item">
               <h4 class="book-title">A lógica do cisne negro</h4>
               <p class="book-author">Nassim Nicholas Taleb</p>
-              <p class="book-note">Uma reflexão sobre acontecimentos raros, previsões e o peso do inesperado.</p>
+              <p class="book-note">Taleb examina eventos raros e difíceis de prever, mostrando como eles podem transformar mercados e expor os limites da nossa confiança em previsões e modelos.</p>
             </li>
             <li class="book-item">
               <h4 class="book-title">A ascensão do dinheiro</h4>
               <p class="book-author">Niall Ferguson</p>
-              <p class="book-note">Uma história do dinheiro e das instituições financeiras que ajudaram a moldar o mundo.</p>
+              <p class="book-note">Niall Ferguson percorre a história do crédito, dos títulos, dos seguros e das ações para mostrar como as instituições financeiras influenciaram o desenvolvimento das sociedades.</p>
             </li>
           </ul>
         </div>
@@ -316,27 +316,27 @@
             <li class="book-item">
               <h4 class="book-title">O velho e o mar</h4>
               <p class="book-author">Ernest Hemingway</p>
-              <p class="book-note">Na luta de um pescador em alto-mar, uma história sobre resistência, orgulho e limites.</p>
+              <p class="book-note">A batalha de um pescador envelhecido com um enorme peixe no Golfo do México se torna uma reflexão sobre resistência, dignidade e relação com a natureza.</p>
             </li>
             <li class="book-item">
               <h4 class="book-title">Vidas secas</h4>
               <p class="book-author">Graciliano Ramos</p>
-              <p class="book-note">Uma família atravessa a seca e a pobreza em um retrato contundente da sobrevivência e da desigualdade.</p>
+              <p class="book-note">Acompanhando uma família de retirantes pelo sertão, Graciliano Ramos retrata a pobreza, a seca e as barreiras que limitam a vida e a expressão de cada personagem.</p>
             </li>
             <li class="book-item">
               <h4 class="book-title">Ensaio sobre a cegueira</h4>
               <p class="book-author">José Saramago</p>
-              <p class="book-note">Uma epidemia de cegueira desorganiza a vida coletiva e expõe a fragilidade das relações sociais.</p>
+              <p class="book-note">Quando uma epidemia inexplicável se espalha, um grupo isolado precisa reconstruir a convivência. Saramago explora poder, violência, solidariedade e fragilidade das regras sociais.</p>
             </li>
             <li class="book-item">
               <h4 class="book-title">Genealogia da moral</h4>
               <p class="book-author">Friedrich Nietzsche</p>
-              <p class="book-note">Uma investigação sobre a origem dos valores morais e das ideias que costumamos tomar como naturais.</p>
+              <p class="book-note">Em três ensaios, Nietzsche investiga como valores morais se formaram e pergunta a quem servem, desafiando certezas sobre culpa, ressentimento, justiça e bem.</p>
             </li>
             <li class="book-item">
               <h4 class="book-title">Sapiens</h4>
               <p class="book-author">Yuval Noah Harari</p>
-              <p class="book-note">Um panorama da história humana e das ideias e crenças que permitiram a grandes grupos cooperar.</p>
+              <p class="book-note">De diferentes revoluções ao mundo contemporâneo, Harari conta a história da humanidade e examina como mitos compartilhados, instituições e tecnologia mudaram nossa forma de viver juntos.</p>
             </li>
           </ul>
         </div>
