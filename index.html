@@ -3,25 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f3ee">
+  <meta name="theme-color" content="#edf3f1">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta name="description" content="Pedro Bonatto escreve sobre macroeconomia, política fiscal, juros e a indústria de investimentos no Off The Market.">
   <title>Pedro Bonatto — Mercados, economia e ideias</title>
   <style>
     :root {
-      --paper: #f5f3ee;
-      --ink: #20211f;
-      --muted: #6e706a;
-      --line: #d9d7cf;
-      --accent: #a64d32;
-      --card: #fbfaf7;
+      --paper: #f1f5f3;
+      --ink: #203036;
+      --muted: #627276;
+      --line: #d3dddc;
+      --accent: #3f7478;
+      --card: #fafcfb;
       --max: 1120px;
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      background: var(--paper);
+      background: radial-gradient(ellipse at 86% 5%, rgba(177, 202, 200, .26), transparent 34rem), linear-gradient(180deg, #f1f5f3 0%, #edf3f2 44rem, #f5f7f5 100%);
       color: var(--ink);
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       line-height: 1.6;
@@ -31,7 +31,7 @@
     .wrap { width: min(var(--max), calc(100% - 56px)); margin: 0 auto; }
     header {
       border-bottom: 1px solid var(--line);
-      background: rgba(245, 243, 238, .92);
+      background: rgba(241, 245, 243, .92);
     }
     .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
     .nav-social { display: inline-flex; align-items: center; justify-content: center; color: var(--ink); line-height: 1; transition: color .15s ease; }
@@ -50,7 +50,7 @@
     .button { min-height: 46px; display: inline-flex; justify-content: center; align-items: center; padding: 0 18px; font-size: 13px; font-weight: 650; text-decoration: none; border: 1px solid var(--ink); transition: background .15s ease, color .15s ease; }
     .button.primary { background: var(--ink); color: #fff; }
     .button.primary:hover { background: var(--accent); border-color: var(--accent); }
-    .button.secondary:hover { background: #e9e6de; }
+    .button.secondary:hover { background: #e1ebea; }
     .hero-links { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 18px; color: var(--muted); font-size: 12px; }
     .hero-links a { text-decoration-thickness: 1px; text-underline-offset: 4px; }
     .hero-links a:hover { color: var(--accent); }
@@ -75,7 +75,7 @@
     [data-fs-error][data-fs-active] { color: var(--accent); }
     .field-error { color: var(--accent); font-size: 11px; }
     .portrait-frame { position: relative; justify-self: end; width: min(100%, 370px); }
-    .portrait-frame::before { content: ""; position: absolute; inset: 15px -15px -15px 15px; border: 1px solid #bbb8af; z-index: 0; }
+    .portrait-frame::before { content: ""; position: absolute; inset: 15px -15px -15px 15px; border: 1px solid #aebfbe; z-index: 0; }
     .portrait { display: block; position: relative; z-index: 1; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 24%; filter: grayscale(100%); }
     .portrait-note { position: relative; z-index: 1; padding-top: 13px; color: var(--muted); text-align: right; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
     .rule { border: 0; border-top: 1px solid var(--line); margin: 0; }
@@ -99,7 +99,11 @@
 
     .contact { padding: 30px 0 38px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 24px; }
     .contact p { margin: 0; color: var(--muted); font-size: 13px; }
-    footer { border-top: 1px solid var(--line); padding: 17px 0 25px; color: var(--muted); font-size: 11px; display: flex; justify-content: space-between; gap: 16px; }
+    footer { margin-top: 24px; border-top: 1px solid var(--line); background: linear-gradient(135deg, #e6efed 0%, #edf3f2 58%, #e7eeee 100%); color: var(--muted); }
+    .footer-inner { padding: 30px 0 22px; }
+    .footer-label { margin: 0 0 10px; color: var(--accent); font-size: 10px; font-weight: 750; letter-spacing: .15em; text-transform: uppercase; }
+    .footer-disclaimer { max-width: 940px; margin: 0 0 24px; font-size: 12px; line-height: 1.75; }
+    .footer-meta { display: flex; justify-content: space-between; gap: 16px; border-top: 1px solid rgba(98, 114, 118, .24); padding-top: 14px; font-size: 11px; }
     @media (max-width: 720px) {
       .wrap { width: min(100% - 36px, var(--max)); }
       .nav { min-height: 66px; }
@@ -118,7 +122,7 @@
       .contact-fields { grid-template-columns: 1fr; }
       .contact-field.full { grid-column: auto; }
       .contact { align-items: flex-start; flex-direction: column; }
-      footer { flex-direction: column; gap: 5px; }
+      .footer-meta { flex-direction: column; gap: 5px; }
     }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
   </style>
@@ -252,9 +256,15 @@
 
   </main>
 
-  <footer class="wrap">
-    <span>© <span id="year">2026</span> Pedro Bonatto</span>
-    <span>Feito para reunir ideias, não recomendações.</span>
+  <footer>
+    <div class="wrap footer-inner">
+      <p class="footer-label">Nota ao leitor</p>
+      <p class="footer-disclaimer">Este site é mantido em caráter pessoal. Os textos têm finalidade informativa e expressam opiniões do autor, sem representar necessariamente a posição de empregadores ou instituições a que esteja vinculado. As publicações não consideram os objetivos, a situação financeira ou o perfil de risco de cada leitor e não constituem recomendação individual de investimento, oferta ou solicitação de compra ou venda de ativos. Investimentos envolvem riscos, inclusive de perda do capital, e rentabilidade passada não garante resultados futuros. Antes de tomar decisões, avalie sua situação e, quando necessário, procure orientação profissional habilitada.</p>
+      <div class="footer-meta">
+        <span>© <span id="year">2026</span> Pedro Bonatto</span>
+        <span>Conteúdo informativo e opinativo.</span>
+      </div>
+    </div>
   </footer>
   <script>
     window.formspree = window.formspree || function () {
