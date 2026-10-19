@@ -9,16 +9,16 @@
   <title>Pedro Bonatto — Mercados, economia e ideias</title>
   <style>
     :root {
-      --paper: #eff4f7;
-      --ink: #203039;
-      --muted: #60717c;
-      --line: #d1dce3;
-      --accent: #3e7088;
-      --card: #fbfcfd;
+      --paper: #f1f5f3;
+      --ink: #203036;
+      --muted: #627276;
+      --line: #d3dddc;
+      --accent: #3f7478;
+      --card: #fafcfb;
       --max: 1120px;
     }
     * { box-sizing: border-box; }
-    #sea-mist { position: fixed; inset: -18%; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 46% 40% at 14% 22%, rgba(79, 137, 176, .24), transparent 74%), radial-gradient(ellipse 45% 40% at 86% 78%, rgba(68, 117, 164, .21), transparent 74%), radial-gradient(ellipse 38% 34% at 5% 82%, rgba(92, 151, 181, .17), transparent 74%), radial-gradient(ellipse 40% 36% at 94% 16%, rgba(84, 137, 177, .17), transparent 74%); filter: blur(12px); animation: sea-swell 30s ease-in-out infinite alternate; }
+    #sea-mist { position: fixed; inset: -18%; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 46% 40% at 14% 22%, rgba(84, 143, 148, .24), transparent 74%), radial-gradient(ellipse 45% 40% at 86% 78%, rgba(75, 126, 149, .21), transparent 74%), radial-gradient(ellipse 38% 34% at 5% 82%, rgba(96, 153, 155, .17), transparent 74%), radial-gradient(ellipse 40% 36% at 94% 16%, rgba(89, 145, 153, .17), transparent 74%); filter: blur(12px); animation: sea-swell 30s ease-in-out infinite alternate; }
     #sea-canvas { position: fixed; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none; }
     @keyframes sea-swell { 0% { transform: translate3d(-3%, -1%, 0) scale(1); } 50% { transform: translate3d(2%, 2%, 0) scale(1.025); } 100% { transform: translate3d(4%, -3%, 0) scale(1.04); } }
     header, main, footer { position: relative; z-index: 1; }
@@ -26,7 +26,7 @@
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      background: radial-gradient(ellipse at 86% 5%, rgba(177, 202, 200, .26), transparent 34rem), linear-gradient(180deg, #eff4f7 0%, #eaf1f5 44rem, #f4f7f9 100%);
+      background: radial-gradient(ellipse at 86% 5%, rgba(177, 202, 200, .26), transparent 34rem), linear-gradient(180deg, #f1f5f3 0%, #edf3f2 44rem, #f5f7f5 100%);
       color: var(--ink);
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       line-height: 1.6;
@@ -36,7 +36,7 @@
     .wrap { width: min(var(--max), calc(100% - 56px)); margin: 0 auto; }
     header {
       border-bottom: 1px solid var(--line);
-      background: rgba(239, 244, 247, .92);
+      background: rgba(241, 245, 243, .92);
     }
     .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
     .nav-social { display: inline-flex; align-items: center; justify-content: center; color: var(--ink); line-height: 1; transition: color .15s ease; }
@@ -55,7 +55,7 @@
     .button { min-height: 46px; display: inline-flex; justify-content: center; align-items: center; padding: 0 18px; font-size: 13px; font-weight: 650; text-decoration: none; border: 1px solid var(--ink); transition: background .15s ease, color .15s ease; }
     .button.primary { background: var(--ink); color: #fff; }
     .button.primary:hover { background: var(--accent); border-color: var(--accent); }
-    .button.secondary:hover { background: #e1ebf1; }
+    .button.secondary:hover { background: #e1ebea; }
     .hero-links { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 18px; color: var(--muted); font-size: 12px; }
     .hero-links a { text-decoration-thickness: 1px; text-underline-offset: 4px; }
     .hero-links a:hover { color: var(--accent); }
@@ -80,7 +80,7 @@
     [data-fs-error][data-fs-active] { color: var(--accent); }
     .field-error { color: var(--accent); font-size: 11px; }
     .portrait-frame { position: relative; justify-self: end; width: min(100%, 370px); }
-    .portrait-frame::before { content: ""; position: absolute; inset: 15px -15px -15px 15px; border: 1px solid #afc1cb; z-index: 0; }
+    .portrait-frame::before { content: ""; position: absolute; inset: 15px -15px -15px 15px; border: 1px solid #aebfbe; z-index: 0; }
     .portrait { display: block; position: relative; z-index: 1; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 24%; filter: grayscale(100%); }
     .portrait-note { position: relative; z-index: 1; padding-top: 13px; color: var(--muted); text-align: right; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
     .rule { border: 0; border-top: 1px solid var(--line); margin: 0; }
@@ -104,11 +104,11 @@
 
     .contact { padding: 30px 0 38px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 24px; }
     .contact p { margin: 0; color: var(--muted); font-size: 13px; }
-    footer { margin-top: 24px; border-top: 1px solid var(--line); background: linear-gradient(135deg, #e5edf3 0%, #edf3f7 58%, #e5eef4 100%); color: var(--muted); }
+    footer { margin-top: 24px; border-top: 1px solid var(--line); background: linear-gradient(135deg, #e6efed 0%, #edf3f2 58%, #e7eeee 100%); color: var(--muted); }
     .footer-inner { padding: 30px 0 22px; }
     .footer-label { margin: 0 0 10px; color: var(--accent); font-size: 10px; font-weight: 750; letter-spacing: .15em; text-transform: uppercase; }
     .footer-disclaimer { max-width: 940px; margin: 0 0 24px; font-size: 12px; line-height: 1.75; }
-    .footer-meta { display: flex; justify-content: space-between; gap: 16px; border-top: 1px solid rgba(96, 113, 124, .24); padding-top: 14px; font-size: 11px; }
+    .footer-meta { display: flex; justify-content: space-between; gap: 16px; border-top: 1px solid rgba(98, 114, 118, .24); padding-top: 14px; font-size: 11px; }
     @media (max-width: 720px) {
       .wrap { width: min(100% - 36px, var(--max)); }
       .nav { min-height: 66px; }
@@ -324,8 +324,8 @@
         ctx.clearRect(0, 0, width, height);
         if (pointer.active) {
           const glow = ctx.createRadialGradient(pointer.x, pointer.y, 0, pointer.x, pointer.y, 260);
-          glow.addColorStop(0, 'rgba(84, 141, 177, .13)');
-          glow.addColorStop(.55, 'rgba(84, 141, 177, .05)');
+          glow.addColorStop(0, 'rgba(92, 151, 153, .12)');
+          glow.addColorStop(.55, 'rgba(92, 151, 153, .045)');
           glow.addColorStop(1, 'rgba(92, 151, 153, 0)');
           ctx.fillStyle = glow;
           ctx.fillRect(Math.max(0, pointer.x - 260), Math.max(0, pointer.y - 260), 520, 520);
@@ -360,7 +360,7 @@
           if (pointer.active) glow = Math.max(0, 1 - Math.hypot(a.x - pointer.x, a.y - pointer.y) / 180);
           ctx.beginPath();
           ctx.arc(a.x, a.y, a.radius + glow * .45, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(62, 112, 136, ' + (.2 + glow * .3) + ')';
+          ctx.fillStyle = 'rgba(63, 116, 120, ' + (.2 + glow * .3) + ')';
           ctx.fill();
 
           for (let j = i + 1; j < points.length; j++) {
@@ -377,7 +377,7 @@
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = 'rgba(62, 112, 136, ' + opacity + ')';
+            ctx.strokeStyle = 'rgba(63, 116, 120, ' + opacity + ')';
             ctx.lineWidth = .65 + nearPointer * .45;
             ctx.stroke();
           }
