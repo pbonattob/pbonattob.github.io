@@ -18,9 +18,11 @@
       --max: 1120px;
     }
     * { box-sizing: border-box; }
+    #sea-mist { position: fixed; inset: -14%; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 42% 36% at 22% 30%, rgba(84, 143, 148, .22), transparent 74%), radial-gradient(ellipse 38% 34% at 76% 68%, rgba(75, 126, 149, .18), transparent 74%); filter: blur(14px); animation: sea-swell 30s ease-in-out infinite alternate; }
     #sea-canvas { position: fixed; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none; }
+    @keyframes sea-swell { 0% { transform: translate3d(-3%, -1%, 0) scale(1); } 50% { transform: translate3d(2%, 2%, 0) scale(1.025); } 100% { transform: translate3d(4%, -3%, 0) scale(1.04); } }
     header, main, footer { position: relative; z-index: 1; }
-    @media (prefers-reduced-motion: reduce) { #sea-canvas { display: none; } }
+    @media (prefers-reduced-motion: reduce) { #sea-canvas { display: none; } #sea-mist { animation: none; } }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
@@ -131,6 +133,7 @@
   </style>
 </head>
 <body>
+  <div id="sea-mist" aria-hidden="true"></div>
   <canvas id="sea-canvas" aria-hidden="true"></canvas>
   <header>
     <div class="wrap nav">
@@ -357,7 +360,7 @@
           if (pointer.active) glow = Math.max(0, 1 - Math.hypot(a.x - pointer.x, a.y - pointer.y) / 180);
           ctx.beginPath();
           ctx.arc(a.x, a.y, a.radius + glow * .45, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(63, 116, 120, ' + (.16 + glow * .3) + ')';
+          ctx.fillStyle = 'rgba(63, 116, 120, ' + (.25 + glow * .3) + ')';
           ctx.fill();
 
           for (let j = i + 1; j < points.length; j++) {
@@ -370,7 +373,7 @@
               const my = (a.y + b.y) / 2 - pointer.y;
               nearPointer = Math.max(0, 1 - Math.hypot(mx, my) / 175);
             }
-            const opacity = (.095 * (1 - distance / 128) + nearPointer * .17);
+            const opacity = (.17 * (1 - distance / 128) + nearPointer * .17);
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
