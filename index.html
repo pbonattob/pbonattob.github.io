@@ -18,7 +18,7 @@
       --max: 1120px;
     }
     * { box-sizing: border-box; }
-    #sea-mist { position: fixed; inset: -14%; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 42% 36% at 22% 30%, rgba(79, 137, 176, .22), transparent 74%), radial-gradient(ellipse 38% 34% at 76% 68%, rgba(68, 117, 164, .18), transparent 74%); filter: blur(14px); animation: sea-swell 30s ease-in-out infinite alternate; }
+    #sea-mist { position: fixed; inset: -18%; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 46% 40% at 14% 22%, rgba(79, 137, 176, .24), transparent 74%), radial-gradient(ellipse 45% 40% at 86% 78%, rgba(68, 117, 164, .21), transparent 74%), radial-gradient(ellipse 38% 34% at 5% 82%, rgba(92, 151, 181, .17), transparent 74%), radial-gradient(ellipse 40% 36% at 94% 16%, rgba(84, 137, 177, .17), transparent 74%); filter: blur(12px); animation: sea-swell 30s ease-in-out infinite alternate; }
     #sea-canvas { position: fixed; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none; }
     @keyframes sea-swell { 0% { transform: translate3d(-3%, -1%, 0) scale(1); } 50% { transform: translate3d(2%, 2%, 0) scale(1.025); } 100% { transform: translate3d(4%, -3%, 0) scale(1.04); } }
     header, main, footer { position: relative; z-index: 1; }
@@ -290,7 +290,7 @@
         canvas.width = Math.round(width * ratio);
         canvas.height = Math.round(height * ratio);
         ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
-        const amount = Math.max(24, Math.min(105, Math.round(width * height / 10000)));
+        const amount = Math.max(32, Math.min(250, Math.round(width * height / 6000)));
         points.length = 0;
         for (let i = 0; i < amount; i++) {
           points.push({
@@ -360,20 +360,20 @@
           if (pointer.active) glow = Math.max(0, 1 - Math.hypot(a.x - pointer.x, a.y - pointer.y) / 180);
           ctx.beginPath();
           ctx.arc(a.x, a.y, a.radius + glow * .45, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(62, 112, 136, ' + (.25 + glow * .3) + ')';
+          ctx.fillStyle = 'rgba(62, 112, 136, ' + (.2 + glow * .3) + ')';
           ctx.fill();
 
           for (let j = i + 1; j < points.length; j++) {
             const b = points[j];
             const distance = Math.hypot(a.x - b.x, a.y - b.y);
-            if (distance > 128) continue;
+            if (distance > 150) continue;
             let nearPointer = 0;
             if (pointer.active) {
               const mx = (a.x + b.x) / 2 - pointer.x;
               const my = (a.y + b.y) / 2 - pointer.y;
               nearPointer = Math.max(0, 1 - Math.hypot(mx, my) / 175);
             }
-            const opacity = (.17 * (1 - distance / 128) + nearPointer * .17);
+            const opacity = (.1 * (1 - distance / 150) + nearPointer * .17);
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
