@@ -8,6 +8,8 @@
   <meta name="description" content="Uma leitura própria sobre economia, investimentos e carreira.">
   <meta property="og:title" content="Pedro Bonatto">
   <meta property="og:description" content="Uma leitura própria sobre economia, investimentos e carreira.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pbonattob.github.io/">
   <title>Pedro Bonatto</title>
   <style>
     :root {
@@ -340,7 +342,7 @@
             <li class="book-item">
               <h4 class="book-title">O velho e o mar</h4>
               <p class="book-author">Ernest Hemingway</p>
-              <p class="book-note">A batalha de um pescador envelhecido com um enorme peixe no Golfo do México se torna uma reflexão sobre resistência, dignidade e relação com a natureza.</p>
+              <p class="book-note">A batalha de um pescador envelhecido com um enorme peixe se transforma em uma reflexão sobre resistência, dignidade e relação com a natureza.</p>
             </li>
           </ul>
         </div>
@@ -362,12 +364,17 @@
   <script>
     document.querySelectorAll('a[href^="#"]').forEach(function (link) {
       link.addEventListener('click', function (event) {
+        if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
         const target = document.querySelector(link.getAttribute('href'));
         if (!target) return;
         event.preventDefault();
         history.replaceState(null, '', window.location.pathname + window.location.search);
         const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         target.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
+        if (event.detail === 0) {
+          if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+          target.focus({ preventScroll: true });
+        }
       });
     });
   </script>
