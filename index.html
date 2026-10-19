@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#edf3f1">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta name="description" content="Pedro Bonatto escreve sobre macroeconomia, política fiscal, juros e a indústria de investimentos no Off The Market.">
-  <title>Pedro Bonatto — Mercados, economia e ideias</title>
+  <title>Pedro Bonatto</title>
   <style>
     :root {
       --paper: #f1f5f3;
@@ -357,6 +357,18 @@
       </div>
     </div>
   </footer>
+  <script>
+    document.querySelectorAll('.nav-links a[href^="#"]').forEach(function (link) {
+      link.addEventListener('click', function (event) {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (!target) return;
+        event.preventDefault();
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        target.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
+      });
+    });
+  </script>
   <script>
     (function () {
       const canvas = document.getElementById('sea-canvas');
