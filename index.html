@@ -287,7 +287,7 @@
         canvas.width = Math.round(width * ratio);
         canvas.height = Math.round(height * ratio);
         ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
-        const amount = Math.max(22, Math.min(58, Math.round(width * height / 19000)));
+        const amount = Math.max(24, Math.min(105, Math.round(width * height / 10000)));
         points.length = 0;
         for (let i = 0; i < amount; i++) {
           points.push({
@@ -319,6 +319,14 @@
         const delta = Math.min((time - lastFrame) / 16.67, 2);
         lastFrame = time;
         ctx.clearRect(0, 0, width, height);
+        if (pointer.active) {
+          const glow = ctx.createRadialGradient(pointer.x, pointer.y, 0, pointer.x, pointer.y, 260);
+          glow.addColorStop(0, 'rgba(92, 151, 153, .12)');
+          glow.addColorStop(.55, 'rgba(92, 151, 153, .045)');
+          glow.addColorStop(1, 'rgba(92, 151, 153, 0)');
+          ctx.fillStyle = glow;
+          ctx.fillRect(Math.max(0, pointer.x - 260), Math.max(0, pointer.y - 260), 520, 520);
+        }
 
         points.forEach(function (point) {
           point.vx += Math.sin(time / 4200 + point.phase) * .0012;
@@ -349,7 +357,7 @@
           if (pointer.active) glow = Math.max(0, 1 - Math.hypot(a.x - pointer.x, a.y - pointer.y) / 180);
           ctx.beginPath();
           ctx.arc(a.x, a.y, a.radius + glow * .45, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(63, 116, 120, ' + (.12 + glow * .3) + ')';
+          ctx.fillStyle = 'rgba(63, 116, 120, ' + (.16 + glow * .3) + ')';
           ctx.fill();
 
           for (let j = i + 1; j < points.length; j++) {
@@ -362,7 +370,7 @@
               const my = (a.y + b.y) / 2 - pointer.y;
               nearPointer = Math.max(0, 1 - Math.hypot(mx, my) / 175);
             }
-            const opacity = (.075 * (1 - distance / 128) + nearPointer * .17);
+            const opacity = (.095 * (1 - distance / 128) + nearPointer * .17);
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
