@@ -86,7 +86,7 @@
     .field-error { color: var(--accent); font-size: 11px; }
     .portrait-frame { position: relative; justify-self: end; width: min(100%, 370px); }
     .portrait-frame::before { content: ""; position: absolute; inset: 15px -15px -15px 15px; border: 1px solid #aebfbe; z-index: 0; }
-    .portrait { display: block; position: relative; z-index: 1; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 24%; filter: none; }
+    .portrait { display: block; position: relative; z-index: 1; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 24%; filter: grayscale(100%); }
     .portrait-note { position: relative; z-index: 1; padding-top: 13px; color: var(--muted); text-align: right; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
     .rule { border: 0; border-top: 1px solid var(--line); margin: 0; }
     section { scroll-margin-top: 28px; }
@@ -221,7 +221,7 @@
         </div>
       </div>
       <div class="portrait-frame">
-        <img class="portrait" src="perfil-aquarela.svg" alt="Retrato em preto e branco de Pedro Bonatto" width="1111" height="1111">
+        <img class="portrait" src="perfil.png" alt="Retrato em preto e branco de Pedro Bonatto" width="1111" height="1111">
         <div class="portrait-note">Pedro Bonatto, CGA • Financial Markets</div>
       </div>
     </section>
